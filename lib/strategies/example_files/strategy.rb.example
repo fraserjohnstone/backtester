@@ -1,0 +1,11 @@
+class <CLASS_NAME> < Strategy
+  def eligible_for_sells?(tick:)
+    false
+  end
+
+  def eligible_for_buys?(tick:)
+    false
+  end
+
+<CANDLE_INDICATOR_METHODS>
+end

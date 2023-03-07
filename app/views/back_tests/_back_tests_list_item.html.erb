@@ -1,0 +1,234 @@
+<div class="list-item">
+  <div class="list-row-item">
+    <div class="back-test-icon-div">
+      <img src="<%= image_path("icons/bar-chart-icon.svg") %>" class="back-test-icon-img" />
+    </div>
+
+    <div class="back-test-strategy-k-v-section list-item-k-v-section__value--bold">
+      <span id="name-container" style="font-size: 1.3rem;"></span><br>
+      <span id="started-at-readable-container" style="display: inline-block; font-size: 0.87rem; opacity: 0.7; margin-top: 3px;"></span>
+    </div>
+
+    <div id="balance-pct-change-container" class="list-item-k-v-section__value list-item-k-v-section__value--bold">
+    </div>
+  </div>
+
+  <div class="back-test-symbol-list-container" style="overflow: hidden">
+    <% bt.symbols.each do |symbol| %>
+      <div class="back-test-symbol-list-item">
+        <%= symbol %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="list-group-heading">
+    Performance Overview
+  </div>
+
+
+  <div class="list-row-item">
+    <div class="list-item-k-v-section">
+      <div class="list-item-k-v-section__key">
+        <em>Starting Balance</em>
+      </div>
+      <div class="list-item-k-v-section__value">
+        <strong id="starting-balance-container"></strong>
+      </div>
+    </div>
+
+    <div class="list-item-k-v-section">
+      <div class="list-item-k-v-section__key">
+        <em>Current Balance</em>
+      </div>
+      <div class="list-item-k-v-section__value">
+        <strong id="current-balance-container"></strong> <span id="net-balance-container"></span>
+      </div>
+    </div>
+
+    <div class="list-item-k-v-section">
+      <div class="list-item-k-v-section__key">
+        <em>Profit/Loss</em>
+      </div>
+      <div class="list-item-k-v-section__value">
+        <strong id="profit-loss-container"></strong> <span id="net-profit-loss-container"></span>
+      </div>
+    </div>
+
+    <div class="vertical-divider">&nbsp;</div>
+
+    <div class="list-item-k-v-section">
+      <div class="list-item-k-v-section__key">
+        <em>Time Elapsed</em>
+      </div>
+      <div id="time-elapsed-container" class="list-item-k-v-section__value">
+      </div>
+    </div>
+
+    <div class="list-item-k-v-section">
+      <div class="list-item-k-v-section__key">
+        <em>Time Remaining</em>
+      </div>
+      <div id="time-remaining-container" class="list-item-k-v-section__value">
+      </div>
+    </div>
+
+    <div class="vertical-divider">&nbsp;</div>
+
+    <div class="list-item-k-v-section">
+      <div class="list-item-k-v-section__key">
+        <em>Period To Model</em>
+      </div>
+      <div id="model-period-container" class="list-item-k-v-section__value">
+      </div>
+    </div>
+
+    <div class="list-item-k-v-section">
+      <div class="list-item-k-v-section__key">
+        <em>Current Model Progress</em>
+      </div>
+      <div id="model-progress-container" class="list-item-k-v-section__value">
+      </div>
+    </div>
+
+    <div class="list-item-k-v-section">
+      <div class="list-item-k-v-section__key">
+        <em>Percent Complete</em>
+      </div>
+      <div id="pct-complete-container" class="list-item-k-v-section__value">
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="list-group-heading">
+    Feasibility
+  </div>
+
+  <div class="list-row-item">
+    <div class="list-item-k-v-section">
+      <div class="list-item-k-v-section__key">
+        <em>Mean Pct Return</em>
+      </div>
+      <div id="mean-pct-returns-container" class="list-item-k-v-section__value">
+      </div>
+    </div>
+
+    <div class="list-item-k-v-section">
+      <div class="list-item-k-v-section__key">
+        <em>Standard Deviation</em>
+      </div>
+      <div id="std-dev-container" class="list-item-k-v-section__value">
+      </div>
+    </div>
+
+    <div class="list-item-k-v-section">
+      <div class="list-item-k-v-section__key">
+        <em>Sharpe Ratio</em>
+      </div>
+      <div id="sharpe-ratio-container" class="list-item-k-v-section__value">
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="list-group-heading">
+    <%= link_to "Positions", positions_path(back_test_id: bt.id) %>
+  </div>
+
+  <div id="list-row-item-bar-<%= bt.id %>" class="list-row-item">
+    <div class="list-item-k-v-section">
+      <div class="list-item-k-v-section__key">
+        <em>Total Positions</em>
+      </div>
+      <div id="total-position-count-container" class="list-item-k-v-section__value">
+      </div>
+    </div>
+
+    <div class="vertical-divider">&nbsp;</div>
+
+    <div class="list-item-k-v-section">
+      <div class="list-item-k-v-section__key">
+        <em>Open Positions</em>
+      </div>
+      <div id="open-position-count-container" class="list-item-k-v-section__value">
+      </div>
+    </div>
+
+    <div class="list-item-k-v-section">
+      <div class="list-item-k-v-section__key">
+        <em>Unrealised P/L</em>
+      </div>
+      <div id="unrealised-pl-container" class="list-item-k-v-section__value">
+      </div>
+    </div>
+
+    <div class="vertical-divider">&nbsp;</div>
+
+    <div class="list-item-k-v-section">
+      <div class="list-item-k-v-section__key">
+        <em>Wins</em>
+      </div>
+      <div class="list-item-k-v-section__value">
+        <span id="wins-count-container"></span> <span style="font-size: 0.75rem"><em id="wins-pct-container"></em></span>
+      </div>
+    </div>
+
+    <div class="list-item-k-v-section">
+      <div class="list-item-k-v-section__key">
+        <em>Losses</em>
+      </div>
+      <div class="list-item-k-v-section__value">
+        <span id="losses-count-container"></span> <span style="font-size: 0.75rem"><em id="losses-pct-container"></em></span>
+      </div>
+    </div>
+
+    <div class="list-item-k-v-section">
+      <div class="list-item-k-v-section__key">
+        <em>Average Return</em>
+      </div>
+      <div id="avg-return-container" class="list-item-k-v-section__value">
+      </div>
+    </div>
+
+    <div class="list-item-k-v-section">
+      <div class="list-item-k-v-section__key">
+        <em>Average Win</em>
+      </div>
+      <div id="avg-win-container" class="list-item-k-v-section__value">
+      </div>
+    </div>
+
+    <div class="list-item-k-v-section">
+      <div class="list-item-k-v-section__key">
+        <em>Average Loss</em>
+      </div>
+      <div id="avg-loss-container" class="list-item-k-v-section__value">
+      </div>
+    </div>
+
+    <div class="vertical-divider">&nbsp;</div>
+
+    <div id="profit-loss-bar-chart-container-<%= bt.id %>" class="profit-loss-bar-chart-container" style="flex-grow: 1">
+    </div>
+  </div>
+
+  <div class="list-group-heading">
+    Profit/Loss
+  </div>
+
+  <div id="list-row-item-area-<%= bt.id %>" class="list-row-item">
+    <div id="profit-loss-area-chart-container-<%= bt.id %>" class="chart-container" data-back-test-list-item-area-chart-target style="flex-grow: 1">
+    </div>
+  </div>
+
+  <div class="list-group-heading">
+    Application Performance
+  </div>
+
+  <div id="list-row-item-area-<%= bt.id %>" class="list-row-item">
+    <div id="average-tick-time-chart-container-<%= bt.id %>" class="chart-container" data-back-test-list-item-area-chart-target style="flex-grow: 1">
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+.back-test-strategy-k-v-section {
+    flex-grow: 1;
+}
+
+.back-test-active-dot {
+    height: 10px;
+    width: 10px;
+    background-color: #3f65c8;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.back-test-symbol-list-item {
+    background-color: #bdbdbd;
+    font-size: 0.7rem;
+    display: inline-block;
+    padding: 5px;
+    border-radius: 10px;
+    margin-top: 2px;
+}
+.back-test-icon-div {
+    background-color: #3f65c8;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.back-test-icon-img {
+    width: 20px;
+    height: 20px;
+}
+
+.back-test-list-item-container {
+    flex-grow: 1
+}
+
+.back-test-symbol-list-container {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.chart-container {
+    border: 1px solid #d4d4d4;
+    background-color: #f5f5f5;
+    border-radius: 20px;
+    padding: 20px 0;
+}

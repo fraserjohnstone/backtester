@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Trading</title>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
+
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "application" %>
+
+    <%= yield :head %>
+  </head>
+
+  <body>
+      <div class="nav-container">
+        <a href="/back_tests" class="nav-item">Back Tests</a>
+        <a href="#" class="nav-item">Live Trading</a>
+        <a href="#" class="nav-item">Data Integrity</a>
+        <a href="/strategies" class="nav-item">Strategies</a>
+      </div>
+      <div class="content-container">
+        <%= yield %>
+      </div>
+    </div>
+
+
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<div class="page-title-text">Create New Strategy</div>
+<div class="page-horizontal-divider"></div>
+
+<div class="list-container">
+  <%= render partial: "strategy_form", locals: { strategy: @strategy } %>
+</div>
+
+<script type=application/javascript>
+    function assetTypeBtnClicked(assetType) {
+        let inputs = Array.from(document.getElementsByClassName(`symbol-option-btn-${assetType}`))
+        let assetTypeBtn = document.getElementById(`asset-group-btn-${assetType}`)
+
+        if (assetTypeBtn.dataset.enabled === "true") {
+            assetTypeBtn.classList.remove("option-select-btn__active")
+            assetTypeBtn.dataset.enabled = "false"
+        } else {
+            assetTypeBtn.classList.add("option-select-btn__active")
+            assetTypeBtn.dataset.enabled = "true"
+        }
+
+        let shuffledInputs = inputs.sort(() => Math.random() - 0.5)
+
+        for (let i = 0; i < shuffledInputs.length; i++) {
+            setTimeout(function () {
+                let input = shuffledInputs[i]
+                let symbol = input.dataset.symbol
+                let btn = document.getElementById(`symbol-select-btn-${symbol}`)
+
+                if (assetTypeBtn.dataset.enabled === "false") {
+                    input.checked = false
+                    btn.classList.remove("option-select-btn__active")
+                } else {
+                    input.checked = true
+                    btn.classList.add("option-select-btn__active")
+                }
+            }, i*10)
+        }
+    }
+</script>

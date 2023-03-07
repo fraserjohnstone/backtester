@@ -1,0 +1,7 @@
+<%= render partial: "run_new_test" %>
+<div class="page-title-text">Back Tests</div>
+<div class="page-horizontal-divider"></div>
+
+<div class="list-container" id="back-test-list-container">
+  <%=  render partial: "back_tests/back_tests_list", locals: {back_tests: @back_tests} %>
+</div>

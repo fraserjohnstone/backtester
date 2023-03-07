@@ -1,0 +1,29 @@
+<% back_tests.reverse.each do |bt| %>
+  <div id="back-test-data-container" class="vertical-split-container">
+    <div
+      class="back-test-list-item-container"
+      data-controller="back-test-list-item"
+      data-back-test-list-item-back-test-id="<%= bt.id %>"
+    >
+      <%=  render partial: "back_tests/back_tests_list_item", locals: {bt: bt} %>
+    </div>
+
+    <div class="utility-icon-container">
+      <div class="utility-icon-div">
+        <%= link_to(image_tag("icons/trash-icon.svg", class: "utility-icon-img"), destroy_back_test_path(id: bt.id)) %>
+      </div>
+
+      <% if bt.finished? %>
+        <div class="utility-icon-div">
+          <%= link_to(image_tag("icons/copy-icon.svg", class: "utility-icon-img"), edit_back_test_path(bt)) %>
+        </div>
+      <% else %>
+        <div class="utility-icon-div">
+          <%= link_to(stop_back_test_path(id: bt.id)) do %>
+            <div class="black-square"></div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

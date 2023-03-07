@@ -1,0 +1,5 @@
+Surprise: <%= @report.surprise %><br>
+Estimated: <%= @report.estimated_eps %><br>
+Reported: <%= @report.reported_eps %><br>
+<hr>
+<%= line_chart(@series, @chart_options) %>

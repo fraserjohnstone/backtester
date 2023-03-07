@@ -1,0 +1,131 @@
+<div class="list-group-heading">
+  Identification
+</div>
+<div class="list-row-item">
+  <div class="list-item-k-v-section">
+    <div class="list-item-k-v-section__key">
+      <em>Strategy</em>
+    </div>
+    <div class="list-item-k-v-section__value">
+      <%= f.select(:strategy_class, Strategy.pluck(:name).uniq.each_with_object({}) { |n, h| h[n] = n }, { include_blank: false }, class: "drop-down") %>
+    </div>
+  </div>
+</div>
+
+<div class="list-group-heading">
+  Dates
+</div>
+<div class="list-row-item">
+  <div class="list-item-k-v-section">
+    <div class="list-item-k-v-section__key">
+      <em>Start Date</em>
+    </div>
+    <div class="list-item-k-v-section__value">
+      <%= f.datetime_field(:start_date, class: "date-picker-input") %>
+    </div>
+  </div>
+
+  <div class="list-item-k-v-section">
+    <div class="list-item-k-v-section__key">
+      <em>End Date</em>
+    </div>
+    <div class="list-item-k-v-section__value">
+      <%= f.datetime_field(:end_date, class: "date-picker-input") %>
+    </div>
+  </div>
+</div>
+
+<div class="list-group-heading">
+  Symbols
+</div>
+
+<div class="list-row-item">
+  <div class="column-list" data-controller="option-group">
+    <div class="list-row-item select-options">
+      <div data-option-group-target="option"
+           class="option-select-btn"
+           data-action="click->option-group#assetGroupBtnClicked"
+           data-option-subset-value="<%= Symbols::FOREX %>"
+           data-option-subset-enabled="false"
+      >
+        Forex
+      </div>
+      <div data-option-group-target="option"
+           class="option-select-btn"
+           data-action="click->option-group#assetGroupBtnClicked"
+           data-option-subset-value="<%= Symbols::US_STOCKS %>"
+           data-option-subset-enabled="false"
+      >
+        US Stocks
+      </div>
+    </div>
+    <div class="list-row-item wrappable select-options push-down">
+      <% [Symbols::FOREX + Symbols::US_STOCKS].flatten.each do |symbol| %>
+        <div data-option-group-target="option"
+             id="option-<%= symbol %>"
+             class="option-select-btn <%= "option-select-btn__active" if back_test.symbols.include?(symbol) %>"
+             data-action="click->option-group#optionClicked"
+        >
+          <%= f.check_box(:symbols, {id: "option-select-field", class: "hidden-element", multiple: true, checked: back_test.symbols.include?(symbol)}, symbol) %>
+          <%= symbol %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="list-group-heading">
+  Money and Risk Management
+</div>
+<div class="list-row-item wrappable select-options" data-controller="option-group" style="align-items: flex-start">
+  <div class="list-item-k-v-section">
+    <div class="list-item-k-v-section__key">
+      <em>Starting Balance</em>
+    </div>
+    <div class="spacer"></div>
+    <div class="list-item-k-v-section__value">
+      <div style="display: flex; align-items: center" data-controller="slider">
+        <%= f.range_field :starting_balance, min: 1000, max: 50000, step: 500, class: "starting-balance-slider", data: { "slider-target" => "input", "action" => "input->slider#updateLabel" } %>
+        <div data-slider-target="value" style="padding-left: 10px;">1234</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="vertical-divider"></div>
+
+  <div class="list-item-k-v-section">
+    <div class="list-item-k-v-section__key">
+      <em>Risk Per Trade (%)</em>
+    </div>
+    <div class="list-item-k-v-section__value">
+      <div class="incrementor-container" data-controller="incrementor" data-step="0.25" data-min-value="0.25" data-max-value="10">
+        <div data-action="click->incrementor#decrement" data-incrementor-target="decrementor-btn" class="incrementor--btn incrementor--decrementor-btn">-</div>
+        <div class="incrementor--value-btn">
+          <%= f.hidden_field :risk_pct, value: back_test.risk_pct, data: {"incrementor-target" => "valueInput"} %>
+          <div data-incrementor-target="valueDisplay"><%= back_test.risk_pct %></div>
+        </div>
+        <div data-action="click->incrementor#increment" class="incrementor--btn incrementor--incrementor-btn">+</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="vertical-divider"></div>
+
+  <div class="list-item-k-v-section">
+    <div class="list-item-k-v-section__key">
+      <em>Simulated Commission Fees (%)</em>
+    </div>
+    <div class="list-item-k-v-section__value">
+      <div class="incrementor-container" data-controller="incrementor" data-step="0.25" data-min-value="0.25" data-max-value="10" >
+        <div data-action="click->incrementor#decrement" data-incrementor-target="decrementor-btn" class="incrementor--btn incrementor--decrementor-btn">-</div>
+        <div class="incrementor--value-btn">
+          <%= f.hidden_field :commission_pct, value: back_test.commission_pct, data: {"incrementor-target" => "valueInput"} %>
+          <div data-incrementor-target="valueDisplay"><%= back_test.commission_pct %></div>
+        </div>
+        <div data-action="click->incrementor#increment" class="incrementor--btn incrementor--incrementor-btn">+</div>
+      </div>
+    </div>
+  </div>
+</div>

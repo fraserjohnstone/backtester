@@ -1,0 +1,23 @@
+<%= render partial: "create_new_strategy" %>
+
+<div class="page-title-text">Strategies</div>
+<div class="page-horizontal-divider"></div>
+
+<div class="list-container">
+  <% @strategies.each do |strategy| %>
+    <div class="list-container">
+      <div class="list-item">
+        <div class="list-row-item">
+          <%= strategy.name.titleize %>
+          <%= link_to new_back_test_path(strategy_name: strategy.name) do %>
+            <div>Run Back Test</div>
+          <% end %>
+
+          <%= link_to destroy_strategy_path(strategy_id: strategy.id) do %>
+            <div>Delete</div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

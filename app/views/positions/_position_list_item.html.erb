@@ -1,0 +1,108 @@
+<div class="list-row-item">
+  <div class="list-item-k-v-section" style="flex-grow: 1;">
+    <div class="list-item-k-v-section__key">
+      <em>Symbol</em>
+    </div>
+    <div class="list-item-k-v-section__value">
+      <%= position.symbol %>
+    </div>
+  </div>
+
+  <div class="list-item-k-v-section">
+    <div class="list-item-k-v-section__key">
+      <em>Bias</em>
+    </div>
+    <div class="list-item-k-v-section__value">
+      <%= position.bias.humanize.split(" ").last.capitalize %>
+    </div>
+  </div>
+
+  <div class="list-item-k-v-section">
+    <div class="list-item-k-v-section__key">
+      <em>Profit/Loss</em>
+    </div>
+    <div class="list-item-k-v-section__value">
+      <strong><%= number_to_currency(position.gross_profit, unit: "£") %></strong>
+    </div>
+  </div>
+</div>
+
+
+<div class="list-row-item">
+  <div class="list-item-k-v-section">
+    <div class="list-item-k-v-section__key">
+      <em>Open Price</em>
+    </div>
+    <div class="list-item-k-v-section__value">
+      <%= position.open_price %>
+    </div>
+  </div>
+
+  <div class="list-item-k-v-section">
+    <div class="list-item-k-v-section__key">
+      <em>Close Price</em>
+    </div>
+    <div class="list-item-k-v-section__value">
+      <%= position.close_price %>
+    </div>
+  </div>
+
+  <div class="vertical-divider"></div>
+
+  <div class="list-item-k-v-section">
+    <div class="list-item-k-v-section__key">
+      <em>Original Stop Loss</em>
+    </div>
+    <div class="list-item-k-v-section__value">
+      <%= position.original_stop_loss_price %>
+    </div>
+  </div>
+
+  <% if position.stop_loss_price != position.original_stop_loss_price %>
+    <div class="list-item-k-v-section">
+      <div class="list-item-k-v-section__key">
+        <em>Final Stop Loss</em>
+      </div>
+      <div class="list-item-k-v-section__value">
+        <%= position.stop_loss_price %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="list-item-k-v-section">
+    <div class="list-item-k-v-section__key">
+      <em>Stop Loss Distance</em>
+    </div>
+    <div class="list-item-k-v-section__value">
+      <%= position.stop_loss_distance.round(5) %>
+    </div>
+  </div>
+
+  <% if position.take_profit_price.present? %>
+    <div class="vertical-divider"></div>
+
+    <div class="list-item-k-v-section">
+      <div class="list-item-k-v-section__key">
+        <em>Take Profit</em>
+      </div>
+      <div class="list-item-k-v-section__value">
+        <%= position.take_profit_price %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="vertical-divider"></div>
+
+  <div class="list-item-k-v-section">
+    <div class="list-item-k-v-section__key">
+      <em>Duration</em>
+    </div>
+    <div class="list-item-k-v-section__value">
+      <%= distance_of_time_in_words(position.opened_at, position.closed_at) %>
+    </div>
+  </div>
+</div>
+
+<div class="list-row-item chart-container" id="list-row-item-<%= position.id %>">
+
+</div>

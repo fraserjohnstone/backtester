@@ -1,0 +1,86 @@
+<div class="page-title-text"><%= "Positions for #{@back_test.strategy_class.titlecase}" %></div>
+<div class="page-horizontal-divider"></div>
+
+<div id="positions-list-container" class="list-container" data-bt-id="<%= @back_test.id %>">
+  <%=  render partial: "positions/position_list", locals: {positions: @back_test.positions.closed} %>
+</div>
+
+<script type=application/javascript>
+    this.setPositionsListContent()
+    // document.addEventListener("DOMContentLoaded", function() {
+    //     setInterval(function() {
+    //         this.setPositionsListContent()
+    //     }, 5000);
+    // });
+
+    function setPositionsListContent() {
+        let listItemContainers = document.getElementsByClassName("position-list-item-container")
+
+
+        for (let listItemContainer of listItemContainers) {
+            let positionId = listItemContainer.getAttribute("data-pos-id")
+            axios.get(`/positions_list_item_data?id=${positionId}`).then((response) => {
+                listItemContainer.innerHTML = response.data.html;
+
+                this.createPriceChart(positionId);
+            })
+        }
+    }
+
+    function createPriceChart(positionId) {
+        let chartContainer = document.getElementById(`list-row-item-${positionId}`)
+        axios.get(`/price_history_for_position?id=${positionId}`).then((response) => {
+            let series_data = response.data.html
+            let maxY = response.data.maxY
+            let minY = response.data.minY
+
+            let chart = new ApexCharts(chartContainer, this.profitLossAreaChartOptions(series_data, minY, maxY))
+            chart.render()
+        })
+    }
+
+    function profitLossAreaChartOptions(series, minY, maxY) {
+        return {
+            stroke: {
+                width: 1,
+                curve: "smooth"
+            },
+
+            legend: {
+                show: false
+            },
+            dataLabels: {
+                enabled: false
+            },
+            grid: {
+                show: false
+            },
+            yaxis: {
+                max: maxY,
+                min: minY,
+            },
+            chart: {
+                animations: {
+                    enabled: false
+                },
+                toolbar: {
+                    show: false
+                },
+                sparkline: {
+                    enabled: true
+                },
+                height: "500px",
+                width: "100%",
+            },
+            plotOptions: {
+                candlestick: {
+                    colors: {
+                        upward: '#3C90EB',
+                        downward: '#DF7D46'
+                    }
+                }
+            },
+            series: series
+        }
+    }
+</script>

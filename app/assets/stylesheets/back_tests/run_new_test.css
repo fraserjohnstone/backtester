@@ -1,0 +1,30 @@
+.back-tests-run-new-test {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.back-tests-run-new-test-icon-container {
+    background-color: #313131;
+    padding: 4px 10px 4px 10px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    border-radius: 0px 0 20px 20px;
+    position: relative;
+}
+
+.back-tests-run-new-test-icon-container:hover {
+    background-color: #3f65c8;
+}
+
+.back-tests-run-new-test-icon-container:hover > .visible-corner  {
+    background-color: #3f65c8;
+}
+
+.back-tests-run-new-test-icon-container:hover{
+    background-color: #3f65c8;
+}
+
+.back-tests-run-new-test-icon {
+    opacity: 0.9;
+}
