@@ -90,7 +90,6 @@ class Strategy < ApplicationRecord
               process_tick_data_for_symbol(tick: tick)
               @ticks_processed += 1
             end
-            p "#{@ticks_processed + @ticks_skipped}"
 
             if (@ticks_skipped + @ticks_processed) % UPDATE_PERIOD == 0
               p "updating"

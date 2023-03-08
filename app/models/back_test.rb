@@ -19,6 +19,10 @@ class BackTest < ApplicationRecord
   STATE_ORGANICALLY_FINISHED = "state_organically_finished"
   STATE_EXCEPTION = "state_exception"
 
+  POSITION_PLACEMENT_STRATEGY_MARKET = "market"
+  POSITION_PLACEMENT_STRATEGY_STOP = "stop"
+  POSITION_PLACEMENT_STRATEGY_LIMIT = "limit"
+
   DEFAULT_RISK_PCT = 1
   DEFAULT_COMMISSION_PCT = 3.5
   DEFAULT_SYMBOLS = ["AUDCAD", "MSFT"]
@@ -32,6 +36,7 @@ class BackTest < ApplicationRecord
   DEFAULT_MAX_SPREAD = 2.0
   DEFAULT_STARTING_BALANCE = 20000.0
   DEFAULT_TICKS_PROCESSED_IN_PERIOD = []
+  DEFAULT_POSITION_PLACEMENT_STRATEGY = POSITION_PLACEMENT_STRATEGY_MARKET
 
 
   attribute :risk_pct, default: DEFAULT_RISK_PCT
@@ -50,6 +55,7 @@ class BackTest < ApplicationRecord
   attribute :max_spread, default: DEFAULT_MAX_SPREAD
   attribute :starting_balance, default: DEFAULT_STARTING_BALANCE
   attribute :ticks_processed_in_period, default: DEFAULT_TICKS_PROCESSED_IN_PERIOD
+  attribute :position_placement_strategy, default: DEFAULT_POSITION_PLACEMENT_STRATEGY
 
   FINISHED_STATES = [STATE_MANUALLY_FINISHED, STATE_ORGANICALLY_FINISHED, STATE_EXCEPTION]
 

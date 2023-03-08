@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_28_145109) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_28_145110) do
   create_table "back_test_accounts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.float "starting_balance"
     t.float "current_balance"
@@ -40,6 +40,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_145109) do
     t.string "state"
     t.float "starting_balance"
     t.json "ticks_processed_in_period"
+    t.string "position_placement_strategy"
     t.index ["back_test_account_id"], name: "index_back_tests_on_back_test_account_id"
     t.index ["strategy_type", "strategy_id"], name: "index_back_tests_on_strategy"
   end

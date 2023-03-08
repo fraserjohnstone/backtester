@@ -129,3 +129,50 @@
     </div>
   </div>
 </div>
+
+<div class="list-group-heading">
+  Position Opening
+</div>
+
+<div class="list-row-item">
+  <div class="list-item-k-v-section">
+    <div class="list-item-k-v-section__key">
+      <em>Position Placement</em>
+    </div>
+    <div class="list-item-k-v-section__value">
+      <div class="row-list" data-controller="radio-group">
+        <%= f.hidden_field :position_placement_strategy, value: back_test.position_placement_strategy, data: {"radio-group-target" => "valueInput"} %>
+        <div
+          data-radio-group-target="radioButton"
+          data-radio-value="<%= BackTest::POSITION_PLACEMENT_STRATEGY_MARKET %>"
+          class="option-select-btn <%= "option-select-btn__active" if back_test.position_placement_strategy == BackTest::POSITION_PLACEMENT_STRATEGY_MARKET %>"
+          data-action="click->radio-group#radioClicked"
+        >
+          Market
+        </div>
+        <div
+          data-radio-group-target="radioButton"
+          data-radio-value="<%= BackTest::POSITION_PLACEMENT_STRATEGY_LIMIT %>"
+          class="option-select-btn <%= "option-select-btn__active" if back_test.position_placement_strategy == BackTest::POSITION_PLACEMENT_STRATEGY_LIMIT %>"
+          data-action="click->radio-group#radioClicked"
+        >
+          Limit
+        </div>
+        <div
+          data-radio-group-target="radioButton"
+          data-radio-value="<%= BackTest::POSITION_PLACEMENT_STRATEGY_STOP %>"
+          class="option-select-btn <%= "option-select-btn__active" if back_test.position_placement_strategy == BackTest::POSITION_PLACEMENT_STRATEGY_STOP %>"
+          data-action="click->radio-group#radioClicked"
+        >
+          Stop
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="vertical-divider"></div>
+
+  <div class="list-item-k-v-section__key">
+    <em>Pending Positions default expiry</em>
+  </div>
+</div>

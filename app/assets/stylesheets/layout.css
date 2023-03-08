@@ -220,6 +220,13 @@ a {
     display: none;
 }
 
+.row-list {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+
 .column-list {
     display: flex;
     flex-direction: column;

@@ -8,8 +8,10 @@ import BackTestListItemController from "./back_test_list_item_controller"
 import OptionGroupController from "./option_group_controller"
 import SliderController from "./slider_controller"
 import IncrementorController from "./incrementor_controller"
+import RadioGroupController from "./radio_group_controller"
 
 application.register("back-test-list-item", BackTestListItemController)
 application.register("option-group", OptionGroupController)
 application.register("slider", SliderController)
 application.register("incrementor", IncrementorController)
+application.register("radio-group", RadioGroupController)

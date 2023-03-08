@@ -2,12 +2,13 @@
 <div class="page-horizontal-divider"></div>
 
 <div class="list-container">
-  <%= form_for @back_test, url: clone_back_test_path do |f| %>
+  <%= form_for @back_test, url: clone_back_test_path(id: @back_test.id) do |f| %>
+    <%= hidden_field_tag(:destroy_existing, false) %>
     <div class="list-item">
       <%= render partial: "back_test_form", locals: { back_test: @back_test, f: f } %>
 
       <div class="list-row-item">
-        <%= f.submit class: "submit-btn" %>
+        <%= f.submit "Relaunch Back Test with New Parameters", class: "submit-btn" %>
       </div>
     </div>
   <% end %>

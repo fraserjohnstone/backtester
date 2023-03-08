@@ -4,7 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="25b51a3f-11bd-48d1-901d-ddb7033323f5" name="Changes" comment="create new backtest structure" />
+    <list default="true" id="25b51a3f-11bd-48d1-901d-ddb7033323f5" name="Changes" comment="create new backtest structure">
+      <change afterPath="$PROJECT_DIR$/app/javascript/controllers/radio_group_controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db/migrate/20230228145110_add_position_placement_strategy_to_back_tests.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/layout.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/layout.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/back_tests_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/back_tests_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/data_providers/data_providers/tick_providers/back_test_tick_provider.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/data_providers/data_providers/tick_providers/back_test_tick_provider.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/controllers/back_test_list_item_controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/controllers/back_test_list_item_controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/javascript/controllers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/javascript/controllers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/back_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/back_test.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/tick.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/tick.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/strategies/strategy.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/strategies/strategy.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/back_tests/_back_test_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/back_tests/_back_test_form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/back_tests/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/back_tests/edit.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,28 +47,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultRubyCreateTestTemplate&quot;: &quot;RSpec&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/media/SSD_8TB/code/backtester/db/migrate&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;ruby.rails.projectView.checked&quot;: &quot;true&quot;,
-    &quot;ruby.structure.view.model.defaults.configured&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultRubyCreateTestTemplate": "RSpec",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/media/SSD_8TB/code/backtester/app/javascript/controllers",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "ruby.rails.projectView.checked": "true",
+    "ruby.structure.view.model.defaults.configured": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/db/migrate" />
       <recent name="$PROJECT_DIR$/app/javascript/controllers" />
+      <recent name="$PROJECT_DIR$/db/migrate" />
       <recent name="$PROJECT_DIR$/app/views/back_tests" />
       <recent name="$PROJECT_DIR$/app/views/strategies" />
       <recent name="$PROJECT_DIR$/app/strategies" />
@@ -178,7 +193,7 @@
       <workItem from="1678012877420" duration="23870000" />
       <workItem from="1678102265874" duration="3254000" />
       <workItem from="1678119938169" duration="37439000" />
-      <workItem from="1678200366975" duration="1901000" />
+      <workItem from="1678200366975" duration="11809000" />
     </task>
     <task id="LOCAL-00001" summary="create new backtest structure">
       <created>1673937038176</created>

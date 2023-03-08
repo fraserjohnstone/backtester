@@ -67,7 +67,7 @@ export default class extends Controller {
       this.updateProfitLossBarCharts();
       setTimeout(() => {
         context.updateUi()
-      }, 4000)
+      }, 10000)
     })
   }
 

@@ -25,4 +25,8 @@ class Tick <ApplicationRecord
     date += 1.day until date.strftime("%A") == "Sunday"
     date
   end
+
+  def spread_as_pct
+    (spread / ask) * 100
+  end
 end

@@ -67,11 +67,15 @@ module DataProviders
       end
 
       def ticks_for_day_exist?
-        @ticks_for_day = Tick.where(symbol: symbols, date_time: current_date.beginning_of_day..current_date.end_of_day).group_by(&:symbol)
+        get_ticks_for_day
         @ticks_for_day.values.flatten.any?
       end
 
       def initially_populate_ticks_for_day
+        get_ticks_for_day
+      end
+
+      def get_ticks_for_day
         @ticks_for_day = Tick.where(symbol: symbols, date_time: current_date.beginning_of_day..current_date.end_of_day).group_by(&:symbol)
       end
 

@@ -13,8 +13,11 @@ class BackTestsController < ApplicationController
   def clone
     # back_test = BackTest.find(params[:id])
     new_back_test = create_back_test
-
     BackTestRunner.perform_later(back_test_id: new_back_test.id)
+
+    if params[:destroy_existing] == "true"
+      BackTest.find(params[:id]).destroy
+    end
 
     redirect_to back_tests_path
   end
@@ -95,9 +98,6 @@ class BackTestsController < ApplicationController
       average_processed_tick_time_series: back_test.ticks_processed_in_period.map { |d| d["ticks_processed"].to_f }
     }
 
-    p "*** #{(DateTime.now - start).to_f}"
-
-
     render json: back_test_representation
   end
 
@@ -138,6 +138,8 @@ class BackTestsController < ApplicationController
       :end_date,
       :starting_balance,
       :risk_pct,
+      :commission_pct,
+      :position_placement_strategy,
       symbols: [],
     ).to_h.with_indifferent_access.tap do |h|
       h[:symbols] = h[:symbols].reject { |e| e == "0" }
